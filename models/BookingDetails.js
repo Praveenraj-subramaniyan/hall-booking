@@ -19,10 +19,8 @@ const BookingSchema = new mongoose.Schema(
       required: true,
     },
     roomId: {
-      id: {
         type: String,
         required: true,
-      },
     },
   },
   { collection: "Booking" }

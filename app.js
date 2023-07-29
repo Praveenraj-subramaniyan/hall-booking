@@ -14,6 +14,7 @@ mongoose.connect(process.env.MongoDb_Url, {
 
 var roomRouter = require('./routes/room');
 var bookingRouter = require('./routes/booking');
+var customerRouter = require('./routes/customer');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/room', roomRouter);
 app.use('/booking', bookingRouter);
+app.use('/customer', customerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
