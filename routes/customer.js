@@ -6,12 +6,13 @@ const Booking = require("../models/BookingDetails");
 router.get('/all-customer-booked-history', async (req, res) => {
     try {
       const bookings = await Booking.find().populate('roomId', 'roomNumber');
+      console.log(bookings)
       const result = bookings.map((booking) => ({
         customerName: booking.customerName,
-        date: booking.date,
         startTime: booking.startTime,
         endTime: booking.endTime,
-        roomName: booking.roomId.roomNumber,
+        roomId: booking.roomId,
+        totalPrice:booking.price,
       }));
   
       res.status(200).json(result);
